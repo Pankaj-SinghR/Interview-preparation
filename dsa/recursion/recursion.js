@@ -49,5 +49,18 @@ function reverseNumber(n) {
   reverseNumber(parseInt(n / 10))
 }
 
-reverseNumber(1234)
+// reverseNumber(1234)
+
+let count = 0
+function countZeroes(n) {
+  if (n <= 0) return
+  const rem = n % 10
+  if (rem === 0) count++
+  countZeroes(parseInt(n / 10))
+}
+
+countZeroes(500300)
+
+console.log(count)
+
 
