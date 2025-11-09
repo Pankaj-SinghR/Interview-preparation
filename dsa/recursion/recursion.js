@@ -59,8 +59,19 @@ function countZeroes(n) {
   countZeroes(parseInt(n / 10))
 }
 
-countZeroes(500300)
+// countZeroes(500300)
 
-console.log(count)
+// console.log(count)
 
+function sorted(arr, index) {
+  if (index === arr.length - 1) {
+    return true
+  }
+  // console.log(index)
+  return arr[index] < arr[index + 1] && sorted(arr, index + 1)
+}
+
+const arr = [1, 2, 3, 4, 5, 6, 7]
+const res = sorted(arr, 0)
+console.log(res)
 
