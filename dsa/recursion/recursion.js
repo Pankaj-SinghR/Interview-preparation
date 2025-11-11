@@ -71,7 +71,7 @@ function sorted(arr, index) {
   return arr[index] < arr[index + 1] && sorted(arr, index + 1)
 }
 
-const arr = [1, 2, 3, 4, 5, 6, 7]
+const arr = [1, 2, 3, 4, 4, 4, 5, 6, 4, 7]
 // const res = sorted(arr, 0)
 // console.log(res)
 
@@ -86,9 +86,28 @@ function linearSearch(arr, target, index) {
   return linearSearch(arr, target, index + 1)
 }
 
-const res = linearSearch(arr, 7, 0)
-console.log(res)
+// const res = linearSearch(arr, 7, 0)
+// console.log(res)
+//
+// const res1 = linearSearch(arr, 90, 0)
+// console.log(res1)
 
-const res1 = linearSearch(arr, 90, 0)
-console.log(res1)
+function linearSearchWithArr(arr, target, index) {
+  let list = []
+  if (index === arr.length - 1) {
+    if (arr[index] === target) {
+      list.push(index)
+    }
+    return list
+  }
+
+  if (arr[index] === target) list.push(index)
+  const l = linearSearchWithArr(arr, target, index + 1)
+
+  list = [...list, ...l]
+  return list
+}
+
+const res = linearSearchWithArr(arr, 4, 0)
+console.log(res)
 
