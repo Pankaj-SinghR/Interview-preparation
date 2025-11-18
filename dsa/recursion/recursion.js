@@ -21,5 +21,12 @@ function sumOfDigits(n) {
   return (n % 10) + sumOfDigits(parseInt(n / 10))
 }
 
-console.log(sumOfDigits(54321))
+// console.log(sumOfDigits(54321))
+
+function product(n) {
+  if (n % 10 === n) return n
+  return (n % 10) * product(parseInt(n / 10))
+}
+
+// console.log(product(123))
 
