@@ -18,9 +18,7 @@ function factorialNumber(n) {
 // sum of digits
 function sumOfDigits(n) {
   if (n <= 0) return 0
-  const rem = n % 10
-  const num = parseInt(n / 10)
-  return rem + sumOfDigits(num)
+  return (n % 10) + sumOfDigits(parseInt(n / 10))
 }
 
 console.log(sumOfDigits(54321))
