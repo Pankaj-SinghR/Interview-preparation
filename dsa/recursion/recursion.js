@@ -30,3 +30,13 @@ function product(n) {
 
 // console.log(product(123))
 
+// it's always passing 5 here
+// n-- vs --n
+function passingNumber(n) {
+  if (n <= 0) return 1
+  console.log(n)
+  passingNumber(n--)
+}
+
+passingNumber(5)
+
