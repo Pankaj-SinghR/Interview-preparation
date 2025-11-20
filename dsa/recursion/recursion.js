@@ -38,5 +38,16 @@ function passingNumber(n) {
   passingNumber(n--)
 }
 
-passingNumber(5)
+// passingNumber(5)
+
+let sum = 0
+
+function reverseNumber(n) {
+  if (n <= 0) return
+  sum = sum * 10 + (n % 10)
+  console.log(sum)
+  reverseNumber(parseInt(n / 10))
+}
+
+reverseNumber(1234)
 
