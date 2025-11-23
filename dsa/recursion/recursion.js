@@ -72,6 +72,23 @@ function sorted(arr, index) {
 }
 
 const arr = [1, 2, 3, 4, 5, 6, 7]
-const res = sorted(arr, 0)
+// const res = sorted(arr, 0)
+// console.log(res)
+
+function linearSearch(arr, target, index) {
+  if (index === arr.length - 1) {
+    // no need to check further, cuz we are at last index
+    return arr[index] === target
+  }
+
+  if (arr[index] === target) return true
+
+  return linearSearch(arr, target, index + 1)
+}
+
+const res = linearSearch(arr, 7, 0)
 console.log(res)
+
+const res1 = linearSearch(arr, 90, 0)
+console.log(res1)
 
