@@ -71,7 +71,7 @@ function sorted(arr, index) {
   return arr[index] < arr[index + 1] && sorted(arr, index + 1)
 }
 
-const arr = [1, 2, 3, 4, 4, 4, 5, 6, 4, 7]
+// const arr = [1, 2, 3, 4, 4, 4, 5, 6, 4, 7]
 // const res = sorted(arr, 0)
 // console.log(res)
 
