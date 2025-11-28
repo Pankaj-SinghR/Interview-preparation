@@ -19,5 +19,19 @@ function pattern(r, c) {
   }
 }
 
-pattern(4, 0)
+function traingle(r, c) {
+  if (r === 0) {
+    return;
+  }
+
+  if (c < r) {
+    traingle(r, c + 1)
+    process.stdout.write("*")
+  } else {
+    traingle(r - 1, 0)
+    console.log()
+  }
+}
+
+traingle(4, 0)
 
