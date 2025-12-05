@@ -20,5 +20,13 @@ function skipHelperFun(str, i, val, ans) {
 // the pattern of take some element and removing some, is called subset pattern (very important NOTE: )
 
 function subseq(p, up) {
+  if (up === "") {
+    console.log(p)
+    return
+  }
+  const ch = up[0]
+  subseq(p + ch, up.substring(1, up.length));
+  subseq(p, up.substring(1, up.length));
 }
 
+subseq("", "abc")
