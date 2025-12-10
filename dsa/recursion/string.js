@@ -11,6 +11,14 @@ function skipHelperFun(str, i, val, ans) {
   return skipHelperFun(str, i + 1, val, ans)
 }
 
-const res = skip("bbaaccdd", "a")
-console.log(res)
+// const res = skip("bbaaccdd", "a")
+// console.log(res)
+
+// subset
+// * Permutation and combination
+// * subsets -> Non-adjacent collection
+// the pattern of take some element and removing some, is called subset pattern (very important NOTE: )
+
+function subseq(p, up) {
+}
 
