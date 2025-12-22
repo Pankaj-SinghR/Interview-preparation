@@ -29,6 +29,11 @@ function pathPrint(path, r, c) {
     ans = [...ans, ...cc]
   }
 
+  if (r > 1 && c > 1) { // you cannot move diagonally 
+    const dd = pathPrint(path + "T", r - 1, c - 1)
+    ans = [...ans, ...dd]
+  }
+
   return ans
 }
 
