@@ -19,20 +19,13 @@ function pathPrint(path, r, c) {
     return ans
   }
 
-  if (r === 1 && c > 1) {
+  if (c > 1) {
     const rr = pathPrint(path + "R", r, c - 1)
     ans = [...ans, ...rr]
   }
 
-  if (c === 1 && r > 1) {
+  if (r > 1) {
     const cc = pathPrint(path + "D", r - 1, c)
-    ans = [...ans, ...cc]
-  }
-
-  if (r > 1 && c > 1) {
-    const rr = pathPrint(path + "D", r - 1, c)
-    ans = [...ans, ...rr]
-    const cc = pathPrint(path + "R", r, c - 1)
     ans = [...ans, ...cc]
   }
 
