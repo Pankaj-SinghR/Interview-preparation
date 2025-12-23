@@ -37,6 +37,38 @@ function pathPrint(path, r, c) {
   return ans
 }
 
-const res = pathPrint("", 3, 3)
+function pathPrintWithObstacle(path, r, c, maze) {
+  let ans = []
+
+  if (r === maze.length - 1 && c === maze[0].length - 1) {
+    ans.push(path)
+    return ans
+  }
+
+  // if it's an obstacle
+  if (!maze[r][c]) {
+    return []
+  }
+
+  if (r < maze.length - 1) {
+    const cc = pathPrintWithObstacle(path + "D", r + 1, c, maze)
+    ans = [...ans, ...cc]
+  }
+
+  if (c < maze[0].length - 1) {
+    const rr = pathPrintWithObstacle(path + "R", r, c + 1, maze)
+    ans = [...ans, ...rr]
+  }
+
+  return ans
+}
+
+const maze = [
+  [true, true, true],
+  [true, false, true],
+  [true, true, true],
+]
+
+const res = pathPrintWithObstacle("", 0, 0, maze)
 console.log(res)
 
