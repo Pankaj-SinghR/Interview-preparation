@@ -1,20 +1,21 @@
 function nQueen(board, row, n) {
-  let count = 0
+  let ans = []
 
-  if (row === board.length) {
+  if (row === n) {
     // display(board, n)
-    return 1
+    ans.push(board.map(r => [...r]));
+    return ans
   }
 
   for (let j = 0; j < n; j++) {
     if (isSafe(board, row, j, n)) {
       board[row][j] = "Q"
-      count += nQueen(board, row + 1, n)
+      ans.push(...nQueen(board, row + 1, n))
       board[row][j] = "."
     }
   }
 
-  return count
+  return ans
 }
 
 function display(board, n) {
