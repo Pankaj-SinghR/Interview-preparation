@@ -1,16 +1,20 @@
 function nQueen(board, row, n) {
+  let count = 0
+
   if (row === board.length) {
-    display(board, n)
-    return
+    // display(board, n)
+    return 1
   }
 
   for (let j = 0; j < n; j++) {
     if (isSafe(board, row, j, n)) {
       board[row][j] = "Q"
-      nQueen(board, row + 1, n)
+      count += nQueen(board, row + 1, n)
       board[row][j] = "."
     }
   }
+
+  return count
 }
 
 function display(board, n) {
@@ -49,12 +53,20 @@ function isSafe(board, row, col, n) {
   return true
 }
 
-const board = [
-  [".", ".", ".", ".", ".",],
-  [".", ".", ".", ".", ".",],
-  [".", ".", ".", ".", ".",],
-  [".", ".", ".", ".", ".",],
-  [".", ".", ".", ".", ".",],
-]
+function createBoard(n) {
+  let board = []
+  for (let i = 0; i < n; i++) {
+    let row = []
+    for (let j = 0; j < n; j++) {
+      row.push(".")
+    }
+    board.push(row)
+  }
+  return board
+}
 
-nQueen(board, 0, 5)
+const row = 0
+const n = 4
+
+const res = nQueen(createBoard(n), row, n)
+console.log(res);
