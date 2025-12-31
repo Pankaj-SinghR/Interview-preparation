@@ -2,8 +2,15 @@ function nQueen(board, row, n) {
   let ans = []
 
   if (row === n) {
-    // display(board, n)
-    ans.push(board.map(r => [...r]));
+    const solution = []
+    for (const ele of board) {
+      let str = ""
+      for (const aa of ele) {
+        str += aa
+      }
+      solution.push(str)
+    }
+    ans.push(solution)
     return ans
   }
 
