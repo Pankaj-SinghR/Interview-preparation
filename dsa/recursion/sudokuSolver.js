@@ -55,8 +55,8 @@ function isSafe(board, row, col, num) {
     }
 
     // maze check 
-    let rowStart = row - row % 3
-    let colStart = col - col % 3
+    let rowStart = row - row % 3 // also can be written as Math.floor(row/3)*3
+    let colStart = col - col % 3 // also can be written as Math.floor(col/3)*3
     for (let i = rowStart; i < rowStart + 3; i++) {
         for (let j = colStart; j < colStart + 3; j++) {
             if (board[i][j] === num.toString()) return false
