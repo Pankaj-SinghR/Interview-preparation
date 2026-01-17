@@ -149,3 +149,38 @@ MinStack.prototype.getMin = function () {
  */
  
 
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var nextGreaterElement = function (nums1, nums2) {
+    // find the greater element, using monotonic stack
+    let stack = new Array()
+    let ans = new Array(nums2.length).fill(-1)
+
+    for (let i = nums2.length - 1; i >= 0; i--) {
+        let ele = nums2[i]
+        while (stack.length > 0 && nums2[stack[stack.length - 1]] <= ele) {
+            stack.pop()
+        }
+        // if stack is non empty
+        if (!!stack.length) {
+            ans[i] = nums2[stack[stack.length - 1]]
+        }
+        stack.push(i)
+    }
+
+    // map the solution
+    // console.log(ans)
+    let solu = new Array(nums1.length)
+    for (let i = 0; i < nums1.length; i++) {
+        for(let j=0; j<nums2.length;j++){
+            if(nums1[i] === nums2[j]){
+                solu[i] = ans[j]
+            }
+        }
+    }
+    return solu
+};
+
