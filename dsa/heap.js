@@ -6,6 +6,10 @@ Heap.prototype.getParent = function(index) {
 	return Math.floor((index - 1) / 2)
 }
 
+Heap.prototype.peek = function(index) {
+	return this.heap[0]
+}
+
 Heap.prototype.getLeft = function(index) {
 	return 2 * index + 1
 }
