@@ -1,0 +1,25 @@
+- Identify the bottleneck
+- 
+
+--------------: scaling :----------------------
+
+If the database becomes a bottleneck, I would first reduce load rather than scaling it immediately.
+I’d introduce caching for read-heavy traffic, then optimize slow queries and add proper indexing. 
+If the system is still under pressure, I’d introduce read replicas to scale reads. 
+Only if write throughput becomes a bottleneck would I consider sharding or vertical scaling
+
+--------------: Load Balancer :----------------- 			
+What is load balancer and why needed?
+Difference between L4 and L7?
+Round robin vs Least connections?
+What are sticky sessions?
+What happens if load balancer fails?
+Where do you place load balancer?
+Can load balancer do SSL termination?
+Difference between reverse proxy and load balancer?
+
+--------------: CDN :--------------------------
+- Cache Invalidation, Cache TTL, Cache Busting (change the resource url)
+- If your system is highly dynamic (like chat/messages), should you use CDN? Why or why not?
+- 
+
