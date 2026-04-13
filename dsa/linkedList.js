@@ -26,4 +26,27 @@ var reverseList = function(head) {
 };
 
 // ---------------------------------------------------------------------------
-//
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+    let onePointer = head
+    let secPointer = head
+    while(secPointer !== null && secPointer.next !== null){
+        onePointer = onePointer.next
+        secPointer = secPointer.next.next
+        // Both at the same node
+        if(onePointer === secPointer) return true
+    }
+    return false
+};
+
