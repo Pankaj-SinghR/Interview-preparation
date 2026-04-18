@@ -19,6 +19,16 @@ Heap.prototype.insert = function(val) {
 	this.heapifyUp(this.heap.length - 1)
 }
 
+Heap.prototype.extractMin = function() {
+	if(!this.heap.length) return null
+	if(this.heap.length === 1) return this.heap.pop()
+	// more the 1 element
+	const val = this.heap[0]
+	this.heap[0] = this.heap.pop()
+	this.heapifyDown(0)
+	return val
+}
+
 Heap.prototype.swap = function(index1, index2) {
 	const temp = this.heap[index1]
 	this.heap[index1] = this.heap[index2]
@@ -34,12 +44,31 @@ Heap.prototype.heapifyUp = function(index) {
 	}
 }
 
+Heap.prototype.heapifyDown = function(index) {
+	let min = index
+	let left = this.getLeft(index)
+	let right = this.getRight(index)
+	if(left < this.heap.length && this.heap[left] < this.heap[index]){
+		min = left
+	}
+	if(right < this.heap.length && this.heap[right] < this.heap[index]){
+		min = right 
+	}
+
+	if(min !== index){
+		this.swap(min, index)
+		this.heapifyDown(min)
+	}
+}
+
 const heapObj = new Heap()
 heapObj.insert(10)
 heapObj.insert(20)
 heapObj.insert(30)
 heapObj.insert(23)
+heapObj.extractMin()
 heapObj.insert(0)
+heapObj.extractMin()
 heapObj.insert(40)
 
 console.log(heapObj.heap)
