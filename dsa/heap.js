@@ -24,8 +24,8 @@ Heap.prototype.insert = function(val) {
 }
 
 Heap.prototype.extractMin = function() {
-	if(!this.heap.length) return null
-	if(this.heap.length === 1) return this.heap.pop()
+	if (!this.heap.length) return null
+	if (this.heap.length === 1) return this.heap.pop()
 	// more the 1 element
 	const val = this.heap[0]
 	this.heap[0] = this.heap.pop()
@@ -37,6 +37,20 @@ Heap.prototype.swap = function(index1, index2) {
 	const temp = this.heap[index1]
 	this.heap[index1] = this.heap[index2]
 	this.heap[index2] = temp
+}
+
+Heap.prototype.heapSort = function() {
+	const sortedArray = []
+
+	while (!this.isEmpty()) {
+		sortedArray.push(this.extractMin())
+	}
+
+	return sortedArray
+}
+
+Heap.prototype.isEmpty = function() {
+	return this.heap.length === 0
 }
 
 Heap.prototype.heapifyUp = function(index) {
@@ -52,14 +66,14 @@ Heap.prototype.heapifyDown = function(index) {
 	let min = index
 	let left = this.getLeft(index)
 	let right = this.getRight(index)
-	if(left < this.heap.length && this.heap[left] < this.heap[index]){
+	if (left < this.heap.length && this.heap[left] < this.heap[min]) {
 		min = left
 	}
-	if(right < this.heap.length && this.heap[right] < this.heap[index]){
-		min = right 
+	if (right < this.heap.length && this.heap[right] < this.heap[min]) {
+		min = right
 	}
 
-	if(min !== index){
+	if (min !== index) {
 		this.swap(min, index)
 		this.heapifyDown(min)
 	}
@@ -70,10 +84,13 @@ heapObj.insert(10)
 heapObj.insert(20)
 heapObj.insert(30)
 heapObj.insert(23)
-heapObj.extractMin()
+const val = heapObj.extractMin()
+console.log(val)
 heapObj.insert(0)
-heapObj.extractMin()
+const vall = heapObj.extractMin()
+console.log(vall)
 heapObj.insert(40)
 
 console.log(heapObj.heap)
+console.log(heapObj.heapSort())
 
