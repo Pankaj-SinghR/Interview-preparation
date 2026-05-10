@@ -1,0 +1,3 @@
+package main
+
+// observer pattern
